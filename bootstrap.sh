@@ -5,6 +5,11 @@ apt-get install -y libxmlsec1-dev libltdl-dev
 
 curl -fsSL https://get.docker.com/ | sh #This will setup the Docker repo
 
+sudo echo "http://ftp.fr.debian.org/debian testing main" >> /etc/apt/sources.list
+
+sudo apt-get update
+sudo apt-get install -y python3.6
+
 systemctl start mongodb
 systemctl enable mongodb
 systemctl start docker
@@ -12,7 +17,7 @@ systemctl enable docker
 
 pip3 install --upgrade pip
 
-/usr/local/bin/pip3 install --upgrade git+https://github.com/UCL-INGI/INGInious
+/usr/local/bin/python3.6 -m pip install --upgrade git+https://github.com/UCL-INGI/INGInious
 
 # Changing inginious configuration file for webapp
 cp /vagrant/files_to_copy/installer.py /usr/local/lib/python3.6/site-packages/inginious/frontend/
